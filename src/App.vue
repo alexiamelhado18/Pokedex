@@ -49,7 +49,9 @@ export default {
   },
   methods: {
     filter(name) {
-      // console.log(name);
+      let regexp = /[^a-zA-Z]/gim;
+       this.namePokemon = name.replace(regexp,'');
+
       if (name.length >= 3) {
         fetch("https://pokeapi.co/api/v2/pokemon/" + name.toLowerCase())
           .then(async response => {
